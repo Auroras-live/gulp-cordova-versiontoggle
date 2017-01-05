@@ -16,6 +16,11 @@ var defaultZipAlignLocation = "C:\\Program Files (x86)\\Android\\android-sdk\\bu
 var defaultKeystoreLocation = "C:\\Path\\To\\app.example.com.keystore"
 var defaultKeystoreAlias = "app_example_com"
 
+var defaultPaidPackageID = "com.example.app"
+var defaultPaidPackageName = "Example.com App Paid"
+var defaultFreePackageID = "com.example.app.free"
+var defaultFreePackageName = "Example.com App Free"
+
 var paths = {
   sass: ['./scss/**/*.scss']
 };
@@ -144,13 +149,13 @@ gulp.task("zipalign", function() {
 })
 
 gulp.task('set-free-vars', ['set-free-icon'], function() {
-  gutil.env.packageid = "live.auroras.app.free"
-  gutil.env.packagename = "Auroras.live Free"
+  gutil.env.packageid = defaultFreePackageID
+  gutil.env.packagename = defaultFreePackageName
 })
 
 gulp.task('set-paid-vars', ['set-paid-icon'], function() {
-  gutil.env.packageid = "live.auroras.app"
-  gutil.env.packagename = "Auroras.live"
+  gutil.env.packageid = defaultPaidPackageID
+  gutil.env.packagename = defaultPaidPackageName
 })
 
 gulp.task("build-android", function() {
